@@ -1,0 +1,10 @@
+JASS Product Catalog
+Version: 1.0
+Products:
+- Athena Knowledge Workspace
+- Legacy Software Lab
+- Language Data Lab
+Settings:
+theme=light
+autosave=true
+max_recent_files=10

@@ -1,0 +1,8 @@
+{
+  "appName": "JASS Merge Studio",
+  "version": "0.1.0",
+  "theme": "light",
+  "autosave": true,
+  "recentFilesLimit": 10,
+  "features": ["compare", "manual-merge"]
+}

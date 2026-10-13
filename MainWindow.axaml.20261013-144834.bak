@@ -1,0 +1,109 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="JASS_Merge_Studio.MainWindow"
+        Title="JASS Merge Studio"
+        Width="1350" Height="850" MinWidth="950" MinHeight="600"
+        WindowStartupLocation="CenterScreen" Background="#F1F4F9">
+  <Grid RowDefinitions="Auto,Auto,*,Auto">
+    <Border Grid.Row="0" Background="#172033" Padding="20,12">
+      <Grid ColumnDefinitions="*,Auto">
+        <StackPanel Spacing="3">
+          <TextBlock Text="JASS MERGE STUDIO" FontSize="20"
+                     FontWeight="Bold" Foreground="White"/>
+          <TextBlock Text="Compare · Review · Merge · Save"
+                     Foreground="#BCC9DC" FontSize="12"/>
+        </StackPanel>
+        <TextBlock Grid.Column="1" Text="v0.1.0"
+                   Foreground="#BCC9DC" VerticalAlignment="Center"/>
+      </Grid>
+    </Border>
+
+    <WrapPanel Grid.Row="1" Margin="12,10" VerticalAlignment="Center">
+      <Button Content="Open LEFT file" Click="OpenLeft_Click"
+              Padding="14,8" Margin="0,0,8,0"/>
+      <Button Content="Open RIGHT file" Click="OpenRight_Click"
+              Padding="14,8" Margin="0,0,8,0"/>
+      <Button Content="Compare files" Click="Compare_Click"
+              Padding="18,8" Background="#3478F6" Foreground="White"
+              Margin="0,0,8,0"/>
+      <Button Content="Use LEFT as merge base" Click="UseLeft_Click"
+              Padding="14,8" Margin="0,0,8,0"/>
+      <Button Content="Use RIGHT as merge base" Click="UseRight_Click"
+              Padding="14,8" Margin="0,0,8,0"/>
+      <Button Content="Save merged file" Click="SaveMerged_Click"
+              Padding="14,8"/>
+    </WrapPanel>
+
+    <Grid Grid.Row="2" ColumnDefinitions="*,*" RowDefinitions="*,Auto"
+          Margin="12,0,12,10">
+      <Border Grid.Column="0" Background="White" BorderBrush="#D8E0EB"
+              BorderThickness="1" CornerRadius="7" Padding="10"
+              Margin="0,0,6,8">
+        <Grid RowDefinitions="Auto,Auto,*">
+          <TextBlock Text="LEFT VERSION" FontWeight="Bold"
+                     Foreground="#475569" FontSize="11"/>
+          <TextBlock Grid.Row="1" Name="LeftPath" Text="No file selected"
+                     Foreground="#64748B" FontSize="11"
+                     TextWrapping="Wrap" Margin="0,5,0,8"/>
+          <TextBox Grid.Row="2" Name="LeftText" AcceptsReturn="True"
+                   AcceptsTab="True" TextWrapping="NoWrap"
+                   FontFamily="Consolas" FontSize="13"/>
+        </Grid>
+      </Border>
+
+      <Border Grid.Column="1" Background="White" BorderBrush="#D8E0EB"
+              BorderThickness="1" CornerRadius="7" Padding="10"
+              Margin="6,0,0,8">
+        <Grid RowDefinitions="Auto,Auto,*">
+          <TextBlock Text="RIGHT VERSION" FontWeight="Bold"
+                     Foreground="#475569" FontSize="11"/>
+          <TextBlock Grid.Row="1" Name="RightPath" Text="No file selected"
+                     Foreground="#64748B" FontSize="11"
+                     TextWrapping="Wrap" Margin="0,5,0,8"/>
+          <TextBox Grid.Row="2" Name="RightText" AcceptsReturn="True"
+                   AcceptsTab="True" TextWrapping="NoWrap"
+                   FontFamily="Consolas" FontSize="13"/>
+        </Grid>
+      </Border>
+
+      <Border Grid.Row="1" Grid.ColumnSpan="2" Background="White"
+              BorderBrush="#D8E0EB" BorderThickness="1"
+              CornerRadius="7" Padding="10">
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+          <StackPanel Spacing="5">
+            <TextBlock Text="DIFFERENCE REPORT" FontWeight="Bold"
+                       Foreground="#475569" FontSize="11"/>
+            <TextBlock Name="DiffSummary" Text="Open two files and compare."
+                       Foreground="#334155" TextWrapping="Wrap"/>
+            <ListBox Name="DiffList" Height="120">
+              <ListBox.ItemTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding}" FontFamily="Consolas"
+                             FontSize="11" TextWrapping="Wrap"/>
+                </DataTemplate>
+              </ListBox.ItemTemplate>
+            </ListBox>
+          </StackPanel>
+          <StackPanel Grid.Column="1" Spacing="5">
+            <TextBlock Text="MERGED OUTPUT · EDITABLE"
+                       FontWeight="Bold" Foreground="#475569" FontSize="11"/>
+            <TextBlock Text="Review and edit this text before saving."
+                       Foreground="#64748B" FontSize="11"/>
+            <TextBox Name="MergedText" AcceptsReturn="True"
+                     AcceptsTab="True" TextWrapping="NoWrap"
+                     FontFamily="Consolas" FontSize="12"
+                     Height="120"/>
+          </StackPanel>
+        </Grid>
+      </Border>
+    </Grid>
+
+    <Border Grid.Row="3" Background="White"
+            BorderBrush="#D8E0EB" BorderThickness="0,1,0,0"
+            Padding="14,8">
+      <TextBlock Name="StatusText" Text="Ready · Open two text files to begin."
+                 Foreground="#475569" FontSize="12"/>
+    </Border>
+  </Grid>
+</Window>
+

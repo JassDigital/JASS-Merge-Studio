@@ -1,0 +1,5 @@
+employee_id,first_name,last_name,department,active
+101,Asha,Sharma,Engineering,true
+102,David,Chen,Finance,true
+103,Meera,Patel,Operations,true
+104,Noah,Wilson,Support,true
